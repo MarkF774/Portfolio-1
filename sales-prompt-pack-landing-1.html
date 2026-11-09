@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Prompt Pack 2026 | AI-промпты для продаж</title>
+  <meta name="description" content="50+ рабочих промптов для холодных сообщений, работы с возражениями и закрытия сделок.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-card: #111113;
+      --bg-elevated: #18181b;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #22d3ee;
+      --accent-2: #a78bfa;
+      --accent-hover: #67e8f9;
+      --accent-dim: rgba(34, 211, 238, 0.12);
+      --success: #34d399;
+      --radius: 14px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Animated gradient mesh background */
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-mesh::before,
+    .bg-mesh::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.35;
+      animation: float 18s ease-in-out infinite;
+    }
+
+    .bg-mesh::before {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, #22d3ee 0%, transparent 70%);
+      top: -120px;
+      right: -80px;
+      animation-delay: 0s;
+    }
+
+    .bg-mesh::after {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #a78bfa 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+      animation-delay: -9s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.08); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Language Switcher */
+    .lang-switch {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      gap: 2px;
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      animation: fadeDown 0.6s ease-out;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(167, 139, 250, 0.15));
+      color: var(--accent);
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.15);
+    }
+
+    .lang-btn:hover:not(.active) { color: var(--text); }
+
+    /* Reveal animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .reveal-d1 { animation-delay: 0.1s; }
+    .reveal-d2 { animation-delay: 0.2s; }
+    .reveal-d3 { animation-delay: 0.3s; }
+    .reveal-d4 { animation-delay: 0.4s; }
+    .reveal-d5 { animation-delay: 0.5s; }
+
+    /* Hero */
+    .hero {
+      padding: 110px 0 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.12));
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      letter-spacing: 0.03em;
+      animation: fadeUp 0.6s ease-out 0.05s both;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #fafafa 0%, #e0e0e0 40%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 0.7s ease-out 0.12s both;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin: 0 auto 36px;
+      line-height: 1.55;
+      animation: fadeUp 0.7s ease-out 0.2s both;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #a78bfa 100%);
+      background-size: 200% 200%;
+      color: #09090b;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 15px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 24px rgba(34, 211, 238, 0.3);
+      animation: fadeUp 0.7s ease-out 0.3s both, shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(34, 211, 238, 0.45);
+    }
+
+    .cta-primary:active {
+      transform: translateY(0);
+    }
+
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+      background-size: 200% 100%;
+      animation: shine 3.5s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      animation: fadeUp 0.7s ease-out 0.4s both;
+    }
+
+    /* Sections */
+    section { padding: 52px 0; }
+
+    .section-title {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    /* Cards with hover glow */
+    .problem-grid { display: grid; gap: 10px; }
+
+    .problem-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .problem-item:hover {
+      border-color: rgba(248, 113, 113, 0.35);
+      transform: translateX(4px);
+      box-shadow: 0 0 20px rgba(248, 113, 113, 0.08);
+    }
+
+    .problem-icon {
+      flex-shrink: 0;
+      color: #f87171;
+      font-size: 14px;
+      margin-top: 1px;
+    }
+
+    .problem-text { font-size: 14px; color: var(--text-muted); }
+    .problem-text strong { color: var(--text); font-weight: 500; }
+
+    /* Solution */
+    .solution-box {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.05));
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(34, 211, 238, 0.08), transparent 50%);
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .solution-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .solution-box .highlight {
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+    }
+
+    /* Contents */
+    .contents-list { display: grid; gap: 8px; }
+
+    .content-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 13px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      transition: border-color 0.25s ease, transform 0.2s ease, background 0.25s ease;
+    }
+
+    .content-item:hover {
+      border-color: rgba(34, 211, 238, 0.35);
+      transform: translateX(3px);
+      background: linear-gradient(90deg, var(--bg-card), rgba(34, 211, 238, 0.04));
+    }
+
+    .content-item span:last-child {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 12px;
+      background: var(--accent-dim);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    /* Steps */
+    .steps { display: grid; gap: 14px; }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: transform 0.25s ease;
+    }
+
+    .step:hover { transform: translateX(4px); }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.18), rgba(167, 139, 250, 0.12));
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      color: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .step-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .step-content p { font-size: 13px; color: var(--text-muted); }
+
+    /* Pricing */
+    .price-card {
+      background: linear-gradient(160deg, rgba(34, 211, 238, 0.08) 0%, var(--bg-card) 45%, rgba(167, 139, 250, 0.05) 100%);
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      border-radius: 16px;
+      padding: 32px 26px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .price-card:hover {
+      box-shadow: 0 0 50px rgba(34, 211, 238, 0.18);
+      transform: translateY(-3px);
+    }
+
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+    }
+
+    .price-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .price-amount {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, #fafafa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .price-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .price-features {
+      list-style: none;
+      margin-bottom: 26px;
+      text-align: left;
+    }
+
+    .price-features li {
+      font-size: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+
+    .price-features li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .price-card .cta-primary {
+      width: 100%;
+      padding: 16px;
+      font-size: 15px;
+      animation: none;
+    }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 10px; }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq-item:hover { border-color: rgba(34, 211, 238, 0.25); }
+    .faq-item.open { border-color: rgba(34, 211, 238, 0.35); }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+      padding: 16px 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font);
+      transition: color 0.2s ease;
+    }
+
+    .faq-q:hover { color: var(--accent); }
+
+    .faq-q > span:last-child {
+      color: var(--text-muted);
+      font-size: 18px;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+    }
+
+    .faq-item.open .faq-q > span:last-child {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .faq-item.open .faq-a { max-height: 160px; }
+
+    .faq-a p {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      padding: 70px 0 90px;
+    }
+
+    .final-cta h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fafafa 30%, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .final-cta p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 15px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    span[data-lang].active { display: inline; }
+
+    /* Scroll-triggered class */
+    .in-view {
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+
+  <div class="lang-switch">
+    <button class="lang-btn active" data-set-lang="ru">RU</button>
+    <button class="lang-btn" data-set-lang="en">EN</button>
+  </div>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge">
+        <span data-lang="ru" class="active">AI-инструмент для продаж</span>
+        <span data-lang="en">AI Sales Tool</span>
+      </div>
+      <h1>
+        <span data-lang="ru" class="active">Промпты, которые<br>закрывают сделки</span>
+        <span data-lang="en">Prompts that<br>close deals</span>
+      </h1>
+      <p class="hero-sub">
+        <span data-lang="ru" class="active">50+ рабочих промптов для холодных сообщений, возражений и дожима. Копируй → адаптируй → отправляй.</span>
+        <span data-lang="en">50+ working prompts for cold outreach, objections and closing. Copy → adapt → send.</span>
+      </p>
+      <a href="#pricing" class="cta-primary">
+        <span data-lang="ru" class="active">Связаться для покупки</span>
+        <span data-lang="en">Contact to purchase</span>
+      </a>
+      <p class="hero-note">
+        <span data-lang="ru" class="active">PDF + Markdown · Мгновенный доступ</span>
+        <span data-lang="en">PDF + Markdown · Instant access</span>
+      </p>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="reveal">
+      <h2 class="section-title">
+        <span data-lang="ru" class="active">Знакомо?</span>
+        <span data-lang="en">Sound familiar?</span>
+      </h2>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <div class="problem-icon">✕</div>
+          <div class="problem-text">
+            <span data-lang="ru" class="active"><strong>Тратишь 30–60 минут</strong> на одно нормальное сообщение</span>
+            <span data-lang="en"><strong>Spend 30–60 minutes</strong> crafting one decent message</span>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✕</div>
+          <div class="problem-text">
+            <span data-lang="ru" class="active"><strong>Большинство сообщений игнорируют</strong></span>
+            <span data-lang="en"><strong>Most messages get ignored</strong></span>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✕</div>
+          <div class="problem-text">
+            <span data-lang="ru" class="active"><strong>Возражения ставят в тупик</strong>, дожим получается слабым</span>
+            <span data-lang="en"><strong>Objections leave you stuck</strong>, closing feels weak</span>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✕</div>
+          <div class="problem-text">
+            <span data-lang="ru" class="active"><strong>Выгораешь</strong> от необходимости каждый раз придумывать текст</span>
+            <span data-lang="en"><strong>Burn out</strong> from inventing every message from scratch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="reveal">
+      <div class="solution-box">
+        <p>
+          <span data-lang="ru" class="active">Sales Prompt Pack — это не «ещё одни шаблоны».</span>
+          <span data-lang="en">Sales Prompt Pack is not “just another set of templates”.</span>
+        </p>
+        <p class="highlight">
+          <span data-lang="ru" class="active">Это система промптов, которая делает сообщения сильнее и экономит часы каждую неделю.</span>
+          <span data-lang="en">It’s a prompt system that makes your messages stronger and saves hours every week.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- WHAT'S INSIDE -->
+    <section class="reveal">
+      <h2 class="section-title">
+        <span data-lang="ru" class="active">Что внутри</span>
+        <span data-lang="en">What's inside</span>
+      </h2>
+      <div class="contents-list">
+        <div class="content-item">
+          <span data-lang="ru" class="active">Холодный контакт</span>
+          <span data-lang="en">Cold outreach</span>
+          <span>10</span>
+        </div>
+        <div class="content-item">
+          <span data-lang="ru" class="active">Прогрев и квалификация</span>
+          <span data-lang="en">Warm-up & qualification</span>
+          <span>5</span>
+        </div>
+        <div class="content-item">
+          <span data-lang="ru" class="active">Презентация оффера</span>
+          <span data-lang="en">Offer presentation</span>
+          <span>4</span>
+        </div>
+        <div class="content-item">
+          <span data-lang="ru" class="active">Работа с возражениями</span>
+          <span data-lang="en">Objection handling</span>
+          <span>10</span>
+        </div>
+        <div class="content-item">
+          <span data-lang="ru" class="active">Дожим и закрытие</span>
+          <span data-lang="en">Closing</span>
+          <span>6</span>
+        </div>
+        <div class="content-item">
+          <span data-lang="ru" class="active">Повторные продажи + бонусы</span>
+          <span data-lang="en">Upsells + bonuses</span>
+          <span>18</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="reveal">
+      <h2 class="section-title">
+        <span data-lang="ru" class="active">Как это работает</span>
+        <span data-lang="en">How it works</span>
+      </h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>
+              <span data-lang="ru" class="active">Выбираешь нужный промпт</span>
+              <span data-lang="en">Pick the right prompt</span>
+            </h3>
+            <p>
+              <span data-lang="ru" class="active">По ситуации: холодный контакт, возражение, дожим</span>
+              <span data-lang="en">By situation: cold outreach, objection, closing</span>
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>
+              <span data-lang="ru" class="active">Вставляешь в ChatGPT / Claude / Grok</span>
+              <span data-lang="en">Paste into ChatGPT / Claude / Grok</span>
+            </h3>
+            <p>
+              <span data-lang="ru" class="active">Добавляешь пару деталей про клиента</span>
+              <span data-lang="en">Add a couple of details about the client</span>
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>
+              <span data-lang="ru" class="active">Получаешь готовый сильный текст</span>
+              <span data-lang="en">Get a strong ready-to-send message</span>
+            </h3>
+            <p>
+              <span data-lang="ru" class="active">Копируешь, чуть правишь — и отправляешь</span>
+              <span data-lang="en">Copy, lightly edit — and send</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="reveal">
+      <h2 class="section-title">
+        <span data-lang="ru" class="active">Один пакет. Всё включено.</span>
+        <span data-lang="en">One pack. Everything included.</span>
+      </h2>
+      <div class="price-card">
+        <div class="price-name">Sales Prompt Pack 2026</div>
+        <div class="price-amount">$15</div>
+        <div class="price-desc">
+          <span data-lang="ru" class="active">Полный доступ навсегда</span>
+          <span data-lang="en">Full lifetime access</span>
+        </div>
+        <ul class="price-features">
+          <li>
+            <span data-lang="ru" class="active">50+ рабочих промптов в PDF</span>
+            <span data-lang="en">50+ working prompts in PDF</span>
+          </li>
+          <li>
+            <span data-lang="ru" class="active">Markdown-версия для быстрого копирования</span>
+            <span data-lang="en">Markdown version for quick copy</span>
+          </li>
+          <li>
+            <span data-lang="ru" class="active">Инструкция по использованию</span>
+            <span data-lang="en">Usage instructions</span>
+          </li>
+          <li>
+            <span data-lang="ru" class="active">Мгновенный доступ после оплаты</span>
+            <span data-lang="en">Instant access after payment</span>
+          </li>
+        </ul>
+        <a href="#" class="cta-primary" id="btn-buy">
+          <span data-lang="ru" class="active">Связаться для покупки</span>
+          <span data-lang="en">Contact to purchase</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="reveal">
+      <h2 class="section-title">
+        <span data-lang="ru" class="active">Частые вопросы</span>
+        <span data-lang="en">FAQ</span>
+      </h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-lang="ru" class="active">Для каких нейросетей подходят?</span>
+            <span data-lang="en">Which AI models work?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              <span data-lang="ru" class="active">ChatGPT, Claude, Grok, Gemini и большинство других. Промпты написаны универсально.</span>
+              <span data-lang="en">ChatGPT, Claude, Grok, Gemini and most others. Prompts are universal.</span>
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-lang="ru" class="active">Это шаблоны или промпты?</span>
+            <span data-lang="en">Templates or actual prompts?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              <span data-lang="ru" class="active">Именно промпты. Вставляешь в нейросеть — получаешь уникальный текст под свою ситуацию.</span>
+              <span data-lang="en">Actual prompts. Paste into AI — get unique text for your situation.</span>
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-lang="ru" class="active">Подойдёт для B2B и услуг?</span>
+            <span data-lang="en">Works for B2B and services?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              <span data-lang="ru" class="active">Да. Заточены под услуги, консалтинг, инфобизнес и B2B.</span>
+              <span data-lang="en">Yes. Tuned for services, consulting, info-products and B2B.</span>
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-lang="ru" class="active">Как получить доступ?</span>
+            <span data-lang="en">How do I get access?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            <p>
+              <span data-lang="ru" class="active">Сразу после оплаты на почту придёт письмо со ссылками на файлы.</span>
+              <span data-lang="en">Right after payment you’ll get an email with download links.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta reveal">
+      <h2>
+        <span data-lang="ru" class="active">Хватит придумывать с нуля</span>
+        <span data-lang="en">Stop inventing from scratch</span>
+      </h2>
+      <p>
+        <span data-lang="ru" class="active">Получи систему, которая экономит время и помогает закрывать больше сделок.</span>
+        <span data-lang="en">Get a system that saves time and helps you close more deals.</span>
+      </p>
+      <a href="#pricing" class="cta-primary">
+        <span data-lang="ru" class="active">Связаться для покупки</span>
+        <span data-lang="en">Contact to purchase</span>
+      </a>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="container">Sales Prompt Pack 2026</div>
+  </footer>
+
+  <script>
+    // Language switcher
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const langEls = document.querySelectorAll('[data-lang]');
+    function setLang(lang) {
+      langBtns.forEach(b => b.classList.toggle('active', b.dataset.setLang === lang));
+      langEls.forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
+      document.documentElement.lang = lang;
+    }
+    langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+
+    // Buy button placeholder
+    document.getElementById('btn-buy').addEventListener('click', e => {
+      e.preventDefault();
+      alert('Здесь будет ссылка / почта для связи.\nЗамени href у кнопки #btn-buy на mailto: или Telegram.');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
